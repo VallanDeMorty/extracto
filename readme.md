@@ -1,5 +1,8 @@
 # Extracto
 
+![GitHub](https://img.shields.io/github/license/vallandemorty/extracto?label=LICENSE)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/VallanDeMorty/extracto/main?label=CI)
+
 Extracts metadata from articles and other documents.
 
 > Built for [Deno Deploy](https://deno.com/deploy) and other serverless environments.
