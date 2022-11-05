@@ -5,11 +5,14 @@
 
 Extracts metadata from articles and other documents.
 
-> Built for [Deno Deploy](https://deno.com/deploy) and other serverless environments.
+> Built for [Deno Deploy](https://deno.com/deploy) and other serverless
+> environments.
 
 ## Article Metadata
 
-The model is based on [Article Parser](https://github.com/ndaidong/article-parser) and looks like this:
+The model is based on
+[Article Parser](https://github.com/ndaidong/article-parser) and looks like
+this:
 
 ```ts
 {
@@ -42,5 +45,5 @@ curl -X GET -H "Authorization: Bearer your_token" "http://localhost:8000?url=wow
 ## Tests
 
 ```bash
-deno test --allow-net 
+deno test --allow-net
 ```

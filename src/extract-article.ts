@@ -1,11 +1,11 @@
 import { ArticleData, extract } from "https://esm.sh/article-parser";
-import { DOMParser, HTMLElement, NodeList } from "https://esm.sh/linkedom";
+import { DOMParser, HTMLElement } from "https://esm.sh/linkedom";
 import {
   Either,
-  right,
   left,
+  right,
 } from "https://deno.land/x/fun@v2.0.0-alpha.3/either.ts";
-import { info, warning } from "https://deno.land/std@0.162.0/log/mod.ts";
+import { warning } from "https://deno.land/std@0.162.0/log/mod.ts";
 
 export type ArticleIsNotFound = {
   type: "article-is-not-found";

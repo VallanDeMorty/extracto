@@ -20,9 +20,9 @@ Deno.test(
     assertEquals(
       isLeft(actualArticleResult),
       true,
-      "The article wasn't parsed while it should be"
+      "The article wasn't parsed while it should be",
     );
-  }
+  },
 );
 
 Deno.test(
@@ -39,7 +39,7 @@ Deno.test(
     assertEquals(
       isRight(actualArticleResult),
       true,
-      "The article was succesfully parsed while it shouldn't"
+      "The article was succesfully parsed while it shouldn't",
     );
-  }
+  },
 );

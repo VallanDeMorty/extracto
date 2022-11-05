@@ -43,6 +43,6 @@ serve(async (request) => {
       new Response(error.message, {
         status: 400,
         headers: { "Content-Type": "text/plain" },
-      })
+      }),
   )(maybeArticle);
 });
