@@ -1,7 +1,7 @@
 # Extracto
 
 ![GitHub](https://img.shields.io/github/license/vallandemorty/extracto?label=LICENSE)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/VallanDeMorty/extracto/main?label=CI)
+![CI](https://img.shields.io/github/workflow/status/vallandemorty/extracto/CI?label=BUILD)
 
 Extracts metadata from articles and other documents.
 
