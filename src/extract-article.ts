@@ -25,7 +25,7 @@ export const extractArticle = async (
   try {
     response = await fetch(url);
   } catch (error) {
-    warning("Failed to fetch the article", error);
+    warning("Failed to fetch the article", url, error);
 
     return right({
       type: "article-is-not-found",
@@ -34,7 +34,7 @@ export const extractArticle = async (
   }
 
   if (!response.ok) {
-    warning("Failed to fetch the article", response.statusText);
+    warning("Failed to fetch the article", url, response.statusText);
 
     return right({
       type: "article-is-not-found",
@@ -48,7 +48,7 @@ export const extractArticle = async (
   try {
     article = await extract(html);
   } catch (error) {
-    warning("Failed to parse the article", error);
+    warning("Failed to parse the article", url, error);
 
     return right({
       type: "article-parsing-error",
@@ -57,7 +57,7 @@ export const extractArticle = async (
   }
 
   if (!article) {
-    warning("Failed to extract the article");
+    warning("Failed to parse the article", url);
 
     return right({
       type: "article-parsing-error",
