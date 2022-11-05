@@ -20,7 +20,7 @@ serve(async (request) => {
     !authHeader.startsWith("Bearer ") ||
     !authHeader.includes(requiredAuthToken)
   ) {
-    warning("Unauthorized request with auth header: {authHeader}", authHeader);
+    warning("Unauthorized request with auth header", authHeader);
     return new Response("Unauthorized", { status: 401 });
   }
 
