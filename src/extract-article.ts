@@ -1,10 +1,11 @@
 import { ArticleData, extract } from "https://esm.sh/article-parser";
+import { DOMParser, HTMLElement, NodeList } from "https://esm.sh/linkedom";
 import {
   Either,
   right,
   left,
 } from "https://deno.land/x/fun@v2.0.0-alpha.3/either.ts";
-import { warning } from "https://deno.land/std@0.162.0/log/mod.ts";
+import { info, warning } from "https://deno.land/std@0.162.0/log/mod.ts";
 
 export type ArticleIsNotFound = {
   type: "article-is-not-found";
@@ -65,5 +66,27 @@ export const extractArticle = async (
     });
   }
 
-  return left(article);
+  if (!article.title || !article.content) {
+    warning(
+      "Failed to parse the article because of missing title or content",
+      url
+    );
+
+    return right({
+      type: "article-parsing-error",
+      message:
+        "Failed to parse the article because of missing title or content",
+    });
+  }
+
+  const parsedContent = new DOMParser().parseFromString(
+    article.content,
+    "text/html"
+  );
+
+  const cleanedContent = Array.from(parsedContent.children)
+    .map((child: HTMLElement) => child.innerText)
+    .join("");
+
+  return left({ ...article, content: cleanedContent });
 };
