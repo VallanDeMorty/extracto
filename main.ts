@@ -6,6 +6,7 @@ import {
   ArticleExtractionError,
   extractArticle,
 } from "./src/extract-article.ts";
+import { warning } from "https://deno.land/std@0.162.0/log/mod.ts";
 
 serve(async (request) => {
   const requiredAuthToken = Deno.env.get("AUTH_TOKEN");
@@ -19,6 +20,7 @@ serve(async (request) => {
     !authHeader.startsWith("Bearer ") ||
     !authHeader.includes(requiredAuthToken)
   ) {
+    warning("Unauthorized request with auth header: {authHeader}", authHeader);
     return new Response("Unauthorized", { status: 401 });
   }
 
